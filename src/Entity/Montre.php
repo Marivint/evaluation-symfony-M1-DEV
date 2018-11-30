@@ -26,6 +26,17 @@ class Montre{
     private $description;
 
     /**
+     * @ORM\Column(type="text")
+     */
+    private $scr_image;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Bracelet", mappedBy="montres")
+     */
+    private $bracelets;
+
+
+    /**
      * @return mixed
      */
     public function getIntitule()
