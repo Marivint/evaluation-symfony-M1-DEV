@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Formulaire du genre</h1>
+                <hr>
+            </div>
+            <div class="col-md-12">
+                {% form_theme genreForm 'bootstrap_3_layout.html.twig' %}
+                {{ form_start(genreForm) }}
+                {{ form_widget(genreForm) }}
+                <button class="btn btn-info" type="submit">Ajouter</button>
+                {{ form_end(genreForm) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

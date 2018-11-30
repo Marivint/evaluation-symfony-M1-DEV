@@ -5,7 +5,28 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				
+				<h1>Liste des montres</h1>
+				<hr>
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Intitule</th>
+								<th colspan="2"><a href="{{ path('app_admin_montrecreate') }}" class="col btn btn-success">Ajouter une montre</a></th>
+							</tr>
+						</thead>
+						<tbody>
+                        {% set token = csrf_token("MONTRE_DELETE") %}
+                        {% for montre in liste_montre %}
+							<tr>
+								<td>{{ montre.intitule }}</td>
+								<td><a href="{{ path('app_admin_montreupdate', {"id": montre.id}) }}" class="btn btn-info">Modifier</a></td>
+								<td><a href="{{ path('app_admin_montredelete', {"id": montre.id,token:token}) }}" class="btn btn-danger">Supprimer</a></td>
+							</tr>
+                        {% endfor %}
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>

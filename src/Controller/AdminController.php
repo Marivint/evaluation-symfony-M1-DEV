@@ -2,9 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Montre;
+use App\Form\MontreForm;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\BrowserKit\Request;
 
 /**
  * @Route("/admin")
@@ -24,6 +27,61 @@ class AdminController extends Controller
      * @Security("has_role('ROLE_ADMIN')")
      */
     public function montre(){
-    	return $this->render('admin/montre.html.twig');
+        $bdd = $this->getDoctrine()->getManager();
+        $m = $bdd->getRepository(Montre::class);
+        $liste_montre = $m->findBy(
+            [], // WHERE
+            ["intitule" => "ASC"]// ORDER BY]
+        );
+    	return $this->render('admin/montre.html.twig',[
+    	    "liste_montre" => $liste_montre
+        ]);
+    }
+
+    /**
+     * @Route("/montre/creer")
+     * @Security("has_role('ROLE_ADMIN')")
+     */
+    public function montreCreate(Request $request){
+        $m = new Montre();
+
+        $form = $this->createForm(MontreForm::class, $m);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $bdd = $this->getDoctrine()->getManager();
+            $bdd->persist($m);
+            $bdd->flush();
+
+            $this->addFlash("success","La montre à bien été ajouté");
+            return $this->redirectToRoute('app_admin_montre');
+        }
+
+        return $this->render('admin/montreForm.html.twig', [
+            'montre_form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/update", name="update")
+     */
+    public function montreUpdate(Request $request, Montre $m)
+    {
+        $form = $this->createForm(MontreForm::class, $m);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $bdd = $this->getDoctrine()->getManager();
+            $bdd->flush();
+
+            $this->addFlash("success","La montre a bien été modifié");
+            return $this->redirectToRoute('app_admin_montre',[
+                'id' => $genre->getId(),
+            ]);
+        }
+
+        return $this->render('genre/form.html.twig', [
+            'genreForm' => $form->createView(),
+        ]);
     }
 }

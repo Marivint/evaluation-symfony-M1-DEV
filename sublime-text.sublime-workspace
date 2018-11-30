@@ -668,14 +668,7 @@
 	},
 	"expanded_folders":
 	[
-		"/C/wamp64/www/symfony-montre",
-		"/C/wamp64/www/symfony-montre/public",
-		"/C/wamp64/www/symfony-montre/public/css",
-		"/C/wamp64/www/symfony-montre/src",
-		"/C/wamp64/www/symfony-montre/src/Controller",
-		"/C/wamp64/www/symfony-montre/templates",
-		"/C/wamp64/www/symfony-montre/templates/admin",
-		"/C/wamp64/www/symfony-montre/templates/montre"
+		"/C/wamp64/www/evaluation-symfony-M1-DEV"
 	],
 	"file_history":
 	[
@@ -810,7 +803,7 @@
 	],
 	"find":
 	{
-		"height": 42.0
+		"height": 29.0
 	},
 	"find_in_files":
 	{
@@ -1068,7 +1061,7 @@
 	"project": "sublime-text.sublime-project",
 	"replace":
 	{
-		"height": 75.0
+		"height": 54.0
 	},
 	"save_all_on_build": true,
 	"select_file":
