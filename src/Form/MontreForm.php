@@ -17,7 +17,6 @@ namespace App\Form {
             $builder
                 ->add('intitule', TextType::class, ['label' => 'Intitulé de la montre'])
                 ->add('description', TextType::class, ['label' => 'Description'])
-                ->add('prix', IntegerType::class, ['label' => 'Prix'])
                 ->getForm();
         }
     }

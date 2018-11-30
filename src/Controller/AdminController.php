@@ -63,7 +63,7 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/{id}/update", name="update")
+     * @Route("update/{id}")
      */
     public function montreUpdate(Request $request, Montre $m)
     {
@@ -76,12 +76,26 @@ class AdminController extends Controller
 
             $this->addFlash("success","La montre a bien été modifié");
             return $this->redirectToRoute('app_admin_montre',[
-                'id' => $genre->getId(),
+                'id' => $m->getId(),
             ]);
         }
 
-        return $this->render('genre/form.html.twig', [
-            'genreForm' => $form->createView(),
+        return $this->render('admin/montreForm.html.twig', [
+            'montre_form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/delete/{id}")
+     */
+    public function montreDelete(Request $request, Montre $m){
+        $token = $request->query->get("token");
+        if(!$this->isCsrfTokenValid("GENRE_DELETE",$token)){
+            throw  $this->createAccessDeniedException();
+        }
+        $bdd = $this->getDoctrine()->getManager();
+        $bdd->remove($m);
+        $bdd->flush();
+        return $this->redirectToRoute("app_admin_montre");
     }
 }

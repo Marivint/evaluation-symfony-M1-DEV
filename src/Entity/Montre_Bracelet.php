@@ -30,6 +30,9 @@ class Montre_Bracelet{
      */
     private $bracelet;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
     private $prix;
 
 }

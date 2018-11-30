@@ -15,6 +15,9 @@ class Montre{
 
     use idTrait;
 
+    /**
+     * @ORM\Column(type="text")
+     */
     private $intitule;
 
     /**
@@ -23,8 +26,35 @@ class Montre{
     private $description;
 
     /**
-     * @ORM\Column(type="date")
+     * @return mixed
      */
-    private $prix;
+    public function getIntitule()
+    {
+        return $this->intitule;
+    }
+
+    /**
+     * @param mixed $intitule
+     */
+    public function setIntitule($intitule)
+    {
+        $this->intitule = $intitule;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
 
 }

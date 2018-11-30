@@ -22,6 +22,9 @@ class Bracelet{
      */
     private $description;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
     private $prix;
 
 }
