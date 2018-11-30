@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Liste des variantes</h1>
+                <hr>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Intitule</th>
+                                <th colspan="2"><a href="{{ path('app_admin_variantecreate') }}" class="col btn btn-success">Ajouter une variante</a></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% set token = csrf_token("VARIANTE_DELETE") %}
+                        {% for variante in liste_variante %}
+                            <tr>
+                                <td>{{ variante.intitule }}</td>
+                                <td><a href="{{ path('app_admin_varianteupdate', {"id": variante.id}) }}" class="btn btn-info">Modifier</a></td>
+                                <td><a href="{{ path('app_admin_varianteupdate', {"id": variante.id,token:token}) }}" class="btn btn-danger">Supprimer</a></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

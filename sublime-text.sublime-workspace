@@ -523,7 +523,7 @@
 			"file": "src/Controller/DefaultController.php",
 			"settings":
 			{
-				"buffer_size": 326,
+				"buffer_size": 325,
 				"line_ending": "Windows"
 			}
 		},
@@ -531,7 +531,7 @@
 			"file": "templates/admin/index.html.twig",
 			"settings":
 			{
-				"buffer_size": 260,
+				"buffer_size": 335,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -540,7 +540,7 @@
 			"file": "src/Controller/AdminController.php",
 			"settings":
 			{
-				"buffer_size": 618,
+				"buffer_size": 3556,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -556,7 +556,7 @@
 			"file": "templates/admin/montre.html.twig",
 			"settings":
 			{
-				"buffer_size": 183,
+				"buffer_size": 1018,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -851,15 +851,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 326,
+						"buffer_size": 325,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								233,
-								233
+								0,
+								0
 							]
 						],
 						"settings":
@@ -879,15 +879,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 260,
+						"buffer_size": 335,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								180,
-								180
+								0,
+								0
 							]
 						],
 						"settings":
@@ -907,15 +907,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 618,
+						"buffer_size": 3556,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								618,
-								618
+								0,
+								0
 							]
 						],
 						"settings":
@@ -963,15 +963,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 183,
+						"buffer_size": 1018,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								160,
-								160
+								0,
+								0
 							]
 						],
 						"settings":

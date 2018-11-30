@@ -31,10 +31,9 @@ class Montre{
     private $scr_image;
 
     /**
-     * One product has many features. This is the inverse side.
-     * @ORM\ManyToMany(targetEntity="App\Entity\Bracelet")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Variante")
      */
-    private $bracelets;
+    private $variantes;
 
 
     /**
