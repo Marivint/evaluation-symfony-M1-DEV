@@ -27,8 +27,6 @@ class Bracelet{
      */
     private $prix;
 
-    private $montres;
-
 
 
 }

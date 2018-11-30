@@ -63,6 +63,11 @@ class Utilisateur implements UserInterface {
     private $date_crea;
 
     /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Commande")
+     */
+    private $commandes;
+
+    /**
      * Returns the roles granted to the user.
      *
      *     public function getRoles()
