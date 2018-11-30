@@ -1,0 +1,49 @@
+security:
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        in_memory:
+            memory:
+                users:
+                    user:
+                        password: '$2y$13$7IbDodNQeHivhHyyKrylWevxmLpGtBKrTf2aRnTjvlojEDMZJynFS+GY4CuMBYw46QbMUGN'
+                        roles: [ROLE_USER, ROLE_TEST, ROLE_BIDULE]
+                    admin :
+                        password: '$2y$13$/uWjfodEyX04sMgshJnZqeO9ZY6FyuSz6ioGMz7YLC8q6WwO/4H8m'
+                        roles: ROLE_ADMIN
+        database:
+            entity:
+                class: App\Entity\Utilisateur
+                property: email
+    encoders:
+        Symfony\Component\Security\Core\User\User: bcrypt
+        App\Entity\Utilisateur: bcrypt
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            anonymous: true
+            provider: database
+
+            # activate different ways to authenticate
+
+            #http_basic: true
+            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+
+            form_login:
+                login_path: app_security_login
+                check_path: app_security_login
+                username_parameter: _username
+                password_parameter: _password
+            # https://symfony.com/doc/current/security/form_login_setup.html
+
+            logout :
+                path: app_security_logout
+                target: app_security_login
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+         - { path: ^/admin, roles: ROLE_ADMIN }
+         - { path: ^/profile, roles: ROLE_USER }

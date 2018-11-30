@@ -1,0 +1,24 @@
+{% set currentRoute = app.request.attributes.get('_route') %}
+<header>
+    <div class="container-fluid">
+        <nav class="row">
+            <div id="logo-padding" class="col-md-1">
+                <a href="{{ path('app_default_index') }}"><img src="{{ asset('img/logo.png') }}" alt="" width="200"></a>
+            </div>
+            <div id="menu-padding" class="col-md text-right" style="padding-top: 25px;">
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">{{ app.user.email }}</li>
+                    <li class="nav-item"><a class="btn btn-danger" href="{{ path('app_admin_index') }}">Les montres</a></li>
+                    {% if app.user %}
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <li class="nav-item"><a class="btn btn-danger" href="{{ path('app_admin_index') }}">Administration</a></li>
+                        {% endif %}
+                        <li class="nav-item"><a class="btn btn-danger" href="{{ path('app_security_logout') }}">Déconnexion</a></li>
+                    {% else %}
+                        <li class="nav-item"><a class="btn btn-danger" href="{{ path('app_security_login') }}">Connexion</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
