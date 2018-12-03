@@ -1,12 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-	{{ parent() }}
-	<div class="container">
+    {{ parent() }}
+	<style type="text/css">
+		body{
+			background: linear-gradient(45deg, #d8f0f3, #3eb4c1);
+		}
+	</style>
+	<div class="container container-top">
 		<div class="row">
 			<div class="col-md-12">
 				<h1>Liste des montres</h1>
-				<hr>
+				<br>
 				<div class="table-responsive">
 					<table class="table">
 						<thead>

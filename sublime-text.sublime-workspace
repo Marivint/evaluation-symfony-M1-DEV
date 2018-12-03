@@ -520,54 +520,22 @@
 	"buffers":
 	[
 		{
-			"file": "src/Controller/DefaultController.php",
+			"contents": "Searching 11605 files for \"variantes\"\n\nC:\\wamp64\\www\\evaluation-symfony-M1-DEV\\src\\Form\\VarianteForm.php:\n   20              $builder\n   21                  ->add('intitule', TextType::class, ['label' => 'Intitulé de la variante'])\n   22:                 ->add('variantes', EntityType::class,[\n   23                      'class' => Variante::class,\n   24                      'choice_label' => 'intitule'\n\nC:\\wamp64\\www\\evaluation-symfony-M1-DEV\\src\\README.md:\n   13  Montre <- Montre_Bracelet -> Bracelet\n   14  \n   15: Donc du crud pour ajouter une montre et les variantes de bracelets associé.\n   16  \n   17  Pour l'instant\n\nC:\\wamp64\\www\\evaluation-symfony-M1-DEV\\templates\\admin\\index.html.twig:\n    7  \t\t\t<div class=\"col-md-12\">\n    8  \t\t\t\t<a href=\"{{ path('app_admin_montre') }}\" class=\"btn btn-info\">Les montres</a>\n    9: \t\t\t\t<a href=\"{{ path('app_admin_variante') }}\" class=\"btn btn-info\">Les variantes</a>\n   10  \t\t\t</div>\n   11  \t\t</div>\n\nC:\\wamp64\\www\\evaluation-symfony-M1-DEV\\templates\\admin\\variante.html.twig:\n    6          <div class=\"row\">\n    7              <div class=\"col-md-12\">\n    8:                 <h1>Liste des variantes</h1>\n    9                  <hr>\n   10                  <div class=\"table-responsive\">\n\nC:\\wamp64\\www\\evaluation-symfony-M1-DEV\\var\\cache\\dev\\ContainerN1g5YL2\\get_ServiceLocator_5Z4f2a7Service.php:\n    8  \n    9  return $this->privates['.service_locator.5Z4f2a7'] = new \\Symfony\\Component\\DependencyInjection\\ServiceLocator(array('v' => function (): \\App\\Entity\\Variante {\n   10:     return ($this->privates['.errored..service_locator.5Z4f2a7.App\\Entity\\Variante'] ?? $this->load('getVarianteService.php'));\n   11  }));\n   12  \n\nC:\\wamp64\\www\\evaluation-symfony-M1-DEV\\var\\cache\\dev\\profiler\\11\\73\\887311:\n    <binary>\n\nC:\\wamp64\\www\\evaluation-symfony-M1-DEV\\var\\cache\\dev\\profiler\\7f\\af\\90af7f:\n    <binary>\n\nC:\\wamp64\\www\\evaluation-symfony-M1-DEV\\var\\cache\\dev\\profiler\\8c\\5c\\625c8c:\n    <binary>\n\nC:\\wamp64\\www\\evaluation-symfony-M1-DEV\\var\\cache\\dev\\profiler\\b4\\6e\\ad6eb4:\n    <binary>\n\nC:\\wamp64\\www\\evaluation-symfony-M1-DEV\\var\\cache\\dev\\profiler\\f3\\dc\\e8dcf3:\n    <binary>\n\nC:\\wamp64\\www\\evaluation-symfony-M1-DEV\\var\\cache\\dev\\profiler\\f7\\3c\\5c3cf7:\n    <binary>\n\nC:\\wamp64\\www\\evaluation-symfony-M1-DEV\\var\\cache\\dev\\twig\\ca\\cabacc67b98210461beea7bceb6a538d1bd13e0896229898e13f87e1f50e2cf6.php:\n   57          <div class=\\\"row\\\">\n   58              <div class=\\\"col-md-12\\\">\n   59:                 <h1>Liste des variantes</h1>\n   60                  <hr>\n   61                  <div class=\\\"table-responsive\\\">\n   ..\n  139          <div class=\\\"row\\\">\n  140              <div class=\\\"col-md-12\\\">\n  141:                 <h1>Liste des variantes</h1>\n  142                  <hr>\n  143                  <div class=\\\"table-responsive\\\">\n\nC:\\wamp64\\www\\evaluation-symfony-M1-DEV\\var\\cache\\dev\\twig\\d7\\d730862f3ed3d0a9d02660e8b4dc35aeb9748fbb3b1e4e3a3487848ea87af8ba.php:\n   64          // line 9\n   65          echo $this->extensions['Symfony\\Bridge\\Twig\\Extension\\RoutingExtension']->getPath(\"app_admin_variante\");\n   66:         echo \"\\\" class=\\\"btn btn-info\\\">Les variantes</a>\n   67  \\t\\t\\t</div>\n   68  \\t\\t</div>\n   ..\n  102  \\t\\t\\t<div class=\\\"col-md-12\\\">\n  103  \\t\\t\\t\\t<a href=\\\"{{ path('app_admin_montre') }}\\\" class=\\\"btn btn-info\\\">Les montres</a>\n  104: \\t\\t\\t\\t<a href=\\\"{{ path('app_admin_variante') }}\\\" class=\\\"btn btn-info\\\">Les variantes</a>\n  105  \\t\\t\\t</div>\n  106  \\t\\t</div>\n\nC:\\wamp64\\www\\evaluation-symfony-M1-DEV\\var\\log\\dev.log:\n 4972  [2018-11-30 15:37:32] security.DEBUG: User was reloaded from a user provider. {\"provider\":\"Symfony\\\\Bridge\\\\Doctrine\\\\Security\\\\User\\\\EntityUserProvider\",\"username\":\"marivint.yvann@gmail.com\"} []\n 4973  [2018-11-30 15:37:32] php.INFO: User Deprecated: The \"Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\Route\" annotation is deprecated since version 5.2. Use \"Symfony\\Component\\Routing\\Annotation\\Route\" instead. {\"exception\":\"[object] (ErrorException(code: 0): User Deprecated: The \\\"Sensio\\\\Bundle\\\\FrameworkExtraBundle\\\\Configuration\\\\Route\\\" annotation is deprecated since version 5.2. Use \\\"Symfony\\\\Component\\\\Routing\\\\Annotation\\\\Route\\\" instead. at C:\\\\wamp64\\\\www\\\\evaluation-symfony-M1-DEV\\\\vendor\\\\sensio\\\\framework-extra-bundle\\\\Configuration\\\\Route.php:16)\"} []\n 4974: [2018-11-30 15:37:32] request.CRITICAL: Uncaught PHP Exception Symfony\\Component\\PropertyAccess\\Exception\\NoSuchPropertyException: \"Neither the property \"variantes\" nor one of the methods \"getVariantes()\", \"variantes()\", \"isVariantes()\", \"hasVariantes()\", \"__get()\" exist and have public access in class \"App\\Entity\\Montre\".\" at C:\\wamp64\\www\\evaluation-symfony-M1-DEV\\vendor\\symfony\\property-access\\PropertyAccessor.php line 394 {\"exception\":\"[object] (Symfony\\\\Component\\\\PropertyAccess\\\\Exception\\\\NoSuchPropertyException(code: 0): Neither the property \\\"variantes\\\" nor one of the methods \\\"getVariantes()\\\", \\\"variantes()\\\", \\\"isVariantes()\\\", \\\"hasVariantes()\\\", \\\"__get()\\\" exist and have public access in class \\\"App\\\\Entity\\\\Montre\\\". at C:\\\\wamp64\\\\www\\\\evaluation-symfony-M1-DEV\\\\vendor\\\\symfony\\\\property-access\\\\PropertyAccessor.php:394)\"} []\n 4975  [2018-11-30 15:37:32] security.DEBUG: Stored the security token in the session. {\"key\":\"_security_main\"} []\n 4976  [2018-11-30 15:37:32] request.INFO: Matched route \"_wdt\". {\"route\":\"_wdt\",\"route_parameters\":{\"_route\":\"_wdt\",\"_controller\":\"web_profiler.controller.profiler::toolbarAction\",\"token\":\"b4d41b\"},\"request_uri\":\"http://localhost/evaluation-symfony-M1-DEV/public/index.php/_wdt/b4d41b\",\"method\":\"GET\"} []\n ....\n 5085  [2018-12-03 08:17:08] security.DEBUG: User was reloaded from a user provider. {\"provider\":\"Symfony\\\\Bridge\\\\Doctrine\\\\Security\\\\User\\\\EntityUserProvider\",\"username\":\"marivint.yvann@gmail.com\"} []\n 5086  [2018-12-03 08:17:08] php.INFO: User Deprecated: The \"Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\Route\" annotation is deprecated since version 5.2. Use \"Symfony\\Component\\Routing\\Annotation\\Route\" instead. {\"exception\":\"[object] (ErrorException(code: 0): User Deprecated: The \\\"Sensio\\\\Bundle\\\\FrameworkExtraBundle\\\\Configuration\\\\Route\\\" annotation is deprecated since version 5.2. Use \\\"Symfony\\\\Component\\\\Routing\\\\Annotation\\\\Route\\\" instead. at C:\\\\wamp64\\\\www\\\\evaluation-symfony-M1-DEV\\\\vendor\\\\sensio\\\\framework-extra-bundle\\\\Configuration\\\\Route.php:16)\"} []\n 5087: [2018-12-03 08:17:08] request.CRITICAL: Uncaught PHP Exception Symfony\\Component\\PropertyAccess\\Exception\\NoSuchPropertyException: \"Neither the property \"variantes\" nor one of the methods \"getVariantes()\", \"variantes()\", \"isVariantes()\", \"hasVariantes()\", \"__get()\" exist and have public access in class \"App\\Entity\\Montre\".\" at C:\\wamp64\\www\\evaluation-symfony-M1-DEV\\vendor\\symfony\\property-access\\PropertyAccessor.php line 394 {\"exception\":\"[object] (Symfony\\\\Component\\\\PropertyAccess\\\\Exception\\\\NoSuchPropertyException(code: 0): Neither the property \\\"variantes\\\" nor one of the methods \\\"getVariantes()\\\", \\\"variantes()\\\", \\\"isVariantes()\\\", \\\"hasVariantes()\\\", \\\"__get()\\\" exist and have public access in class \\\"App\\\\Entity\\\\Montre\\\". at C:\\\\wamp64\\\\www\\\\evaluation-symfony-M1-DEV\\\\vendor\\\\symfony\\\\property-access\\\\PropertyAccessor.php:394)\"} []\n 5088  [2018-12-03 08:17:08] security.DEBUG: Stored the security token in the session. {\"key\":\"_security_main\"} []\n 5089  [2018-12-03 08:17:09] request.INFO: Matched route \"_wdt\". {\"route\":\"_wdt\",\"route_parameters\":{\"_route\":\"_wdt\",\"_controller\":\"web_profiler.controller.profiler::toolbarAction\",\"token\":\"9f2a09\"},\"request_uri\":\"http://localhost/evaluation-symfony-M1-DEV/public/index.php/_wdt/9f2a09\",\"method\":\"GET\"} []\n ....\n 5094  [2018-12-03 08:18:14] security.DEBUG: User was reloaded from a user provider. {\"provider\":\"Symfony\\\\Bridge\\\\Doctrine\\\\Security\\\\User\\\\EntityUserProvider\",\"username\":\"marivint.yvann@gmail.com\"} []\n 5095  [2018-12-03 08:18:14] php.INFO: User Deprecated: The \"Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\Route\" annotation is deprecated since version 5.2. Use \"Symfony\\Component\\Routing\\Annotation\\Route\" instead. {\"exception\":\"[object] (ErrorException(code: 0): User Deprecated: The \\\"Sensio\\\\Bundle\\\\FrameworkExtraBundle\\\\Configuration\\\\Route\\\" annotation is deprecated since version 5.2. Use \\\"Symfony\\\\Component\\\\Routing\\\\Annotation\\\\Route\\\" instead. at C:\\\\wamp64\\\\www\\\\evaluation-symfony-M1-DEV\\\\vendor\\\\sensio\\\\framework-extra-bundle\\\\Configuration\\\\Route.php:16)\"} []\n 5096: [2018-12-03 08:18:14] request.CRITICAL: Uncaught PHP Exception Symfony\\Component\\PropertyAccess\\Exception\\NoSuchPropertyException: \"Neither the property \"variantes\" nor one of the methods \"getVariantes()\", \"variantes()\", \"isVariantes()\", \"hasVariantes()\", \"__get()\" exist and have public access in class \"App\\Entity\\Montre\".\" at C:\\wamp64\\www\\evaluation-symfony-M1-DEV\\vendor\\symfony\\property-access\\PropertyAccessor.php line 394 {\"exception\":\"[object] (Symfony\\\\Component\\\\PropertyAccess\\\\Exception\\\\NoSuchPropertyException(code: 0): Neither the property \\\"variantes\\\" nor one of the methods \\\"getVariantes()\\\", \\\"variantes()\\\", \\\"isVariantes()\\\", \\\"hasVariantes()\\\", \\\"__get()\\\" exist and have public access in class \\\"App\\\\Entity\\\\Montre\\\". at C:\\\\wamp64\\\\www\\\\evaluation-symfony-M1-DEV\\\\vendor\\\\symfony\\\\property-access\\\\PropertyAccessor.php:394)\"} []\n 5097  [2018-12-03 08:18:14] security.DEBUG: Stored the security token in the session. {\"key\":\"_security_main\"} []\n 5098  [2018-12-03 08:18:15] request.INFO: Matched route \"_wdt\". {\"route\":\"_wdt\",\"route_parameters\":{\"_route\":\"_wdt\",\"_controller\":\"web_profiler.controller.profiler::toolbarAction\",\"token\":\"925080\"},\"request_uri\":\"http://localhost/evaluation-symfony-M1-DEV/public/index.php/_wdt/925080\",\"method\":\"GET\"} []\n ....\n 5692  [2018-12-03 09:04:51] doctrine.DEBUG: SELECT t0.nom AS nom_1, t0.prenom AS prenom_2, t0.email AS email_3, t0.mdp AS mdp_4, t0.admin AS admin_5, t0.date_crea AS date_crea_6, t0.id AS id_7 FROM utilisateur t0 WHERE t0.id = ? [1] []\n 5693  [2018-12-03 09:04:51] security.DEBUG: User was reloaded from a user provider. {\"provider\":\"Symfony\\\\Bridge\\\\Doctrine\\\\Security\\\\User\\\\EntityUserProvider\",\"username\":\"marivint.yvann@gmail.com\"} []\n 5694: [2018-12-03 09:04:51] request.CRITICAL: Uncaught PHP Exception Symfony\\Component\\PropertyAccess\\Exception\\NoSuchPropertyException: \"Neither the property \"variantes\" nor one of the methods \"getVariantes()\", \"variantes()\", \"isVariantes()\", \"hasVariantes()\", \"__get()\" exist and have public access in class \"App\\Entity\\Variante\".\" at C:\\wamp64\\www\\evaluation-symfony-M1-DEV\\vendor\\symfony\\property-access\\PropertyAccessor.php line 394 {\"exception\":\"[object] (Symfony\\\\Component\\\\PropertyAccess\\\\Exception\\\\NoSuchPropertyException(code: 0): Neither the property \\\"variantes\\\" nor one of the methods \\\"getVariantes()\\\", \\\"variantes()\\\", \\\"isVariantes()\\\", \\\"hasVariantes()\\\", \\\"__get()\\\" exist and have public access in class \\\"App\\\\Entity\\\\Variante\\\". at C:\\\\wamp64\\\\www\\\\evaluation-symfony-M1-DEV\\\\vendor\\\\symfony\\\\property-access\\\\PropertyAccessor.php:394)\"} []\n 5695  [2018-12-03 09:04:51] security.DEBUG: Stored the security token in the session. {\"key\":\"_security_main\"} []\n 5696  [2018-12-03 09:04:52] request.INFO: Matched route \"_wdt\". {\"route\":\"_wdt\",\"route_parameters\":{\"_route\":\"_wdt\",\"_controller\":\"web_profiler.controller.profiler::toolbarAction\",\"token\":\"a39eae\"},\"request_uri\":\"http://localhost/evaluation-symfony-M1-DEV/public/index.php/_wdt/a39eae\",\"method\":\"GET\"} []\n ....\n 5701  [2018-12-03 09:05:37] security.DEBUG: User was reloaded from a user provider. {\"provider\":\"Symfony\\\\Bridge\\\\Doctrine\\\\Security\\\\User\\\\EntityUserProvider\",\"username\":\"marivint.yvann@gmail.com\"} []\n 5702  [2018-12-03 09:05:37] php.INFO: User Deprecated: The \"Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\Route\" annotation is deprecated since version 5.2. Use \"Symfony\\Component\\Routing\\Annotation\\Route\" instead. {\"exception\":\"[object] (ErrorException(code: 0): User Deprecated: The \\\"Sensio\\\\Bundle\\\\FrameworkExtraBundle\\\\Configuration\\\\Route\\\" annotation is deprecated since version 5.2. Use \\\"Symfony\\\\Component\\\\Routing\\\\Annotation\\\\Route\\\" instead. at C:\\\\wamp64\\\\www\\\\evaluation-symfony-M1-DEV\\\\vendor\\\\sensio\\\\framework-extra-bundle\\\\Configuration\\\\Route.php:16)\"} []\n 5703: [2018-12-03 09:05:37] request.CRITICAL: Uncaught PHP Exception Symfony\\Component\\PropertyAccess\\Exception\\NoSuchPropertyException: \"Neither the property \"variantes\" nor one of the methods \"getVariantes()\", \"variantes()\", \"isVariantes()\", \"hasVariantes()\", \"__get()\" exist and have public access in class \"App\\Entity\\Variante\".\" at C:\\wamp64\\www\\evaluation-symfony-M1-DEV\\vendor\\symfony\\property-access\\PropertyAccessor.php line 394 {\"exception\":\"[object] (Symfony\\\\Component\\\\PropertyAccess\\\\Exception\\\\NoSuchPropertyException(code: 0): Neither the property \\\"variantes\\\" nor one of the methods \\\"getVariantes()\\\", \\\"variantes()\\\", \\\"isVariantes()\\\", \\\"hasVariantes()\\\", \\\"__get()\\\" exist and have public access in class \\\"App\\\\Entity\\\\Variante\\\". at C:\\\\wamp64\\\\www\\\\evaluation-symfony-M1-DEV\\\\vendor\\\\symfony\\\\property-access\\\\PropertyAccessor.php:394)\"} []\n 5704  [2018-12-03 09:05:37] security.DEBUG: Stored the security token in the session. {\"key\":\"_security_main\"} []\n 5705  [2018-12-03 09:05:38] request.INFO: Matched route \"_wdt\". {\"route\":\"_wdt\",\"route_parameters\":{\"_route\":\"_wdt\",\"_controller\":\"web_profiler.controller.profiler::toolbarAction\",\"token\":\"ebf76b\"},\"request_uri\":\"http://localhost/evaluation-symfony-M1-DEV/public/index.php/_wdt/ebf76b\",\"method\":\"GET\"} []\n ....\n 5752  [2018-12-03 09:06:29] security.DEBUG: User was reloaded from a user provider. {\"provider\":\"Symfony\\\\Bridge\\\\Doctrine\\\\Security\\\\User\\\\EntityUserProvider\",\"username\":\"marivint.yvann@gmail.com\"} []\n 5753  [2018-12-03 09:06:29] php.INFO: User Deprecated: The \"Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\Route\" annotation is deprecated since version 5.2. Use \"Symfony\\Component\\Routing\\Annotation\\Route\" instead. {\"exception\":\"[object] (ErrorException(code: 0): User Deprecated: The \\\"Sensio\\\\Bundle\\\\FrameworkExtraBundle\\\\Configuration\\\\Route\\\" annotation is deprecated since version 5.2. Use \\\"Symfony\\\\Component\\\\Routing\\\\Annotation\\\\Route\\\" instead. at C:\\\\wamp64\\\\www\\\\evaluation-symfony-M1-DEV\\\\vendor\\\\sensio\\\\framework-extra-bundle\\\\Configuration\\\\Route.php:16)\"} []\n 5754: [2018-12-03 09:06:29] request.CRITICAL: Uncaught PHP Exception Symfony\\Component\\PropertyAccess\\Exception\\NoSuchPropertyException: \"Neither the property \"variantes\" nor one of the methods \"getVariantes()\", \"variantes()\", \"isVariantes()\", \"hasVariantes()\", \"__get()\" exist and have public access in class \"App\\Entity\\Variante\".\" at C:\\wamp64\\www\\evaluation-symfony-M1-DEV\\vendor\\symfony\\property-access\\PropertyAccessor.php line 394 {\"exception\":\"[object] (Symfony\\\\Component\\\\PropertyAccess\\\\Exception\\\\NoSuchPropertyException(code: 0): Neither the property \\\"variantes\\\" nor one of the methods \\\"getVariantes()\\\", \\\"variantes()\\\", \\\"isVariantes()\\\", \\\"hasVariantes()\\\", \\\"__get()\\\" exist and have public access in class \\\"App\\\\Entity\\\\Variante\\\". at C:\\\\wamp64\\\\www\\\\evaluation-symfony-M1-DEV\\\\vendor\\\\symfony\\\\property-access\\\\PropertyAccessor.php:394)\"} []\n 5755  [2018-12-03 09:06:30] security.DEBUG: Stored the security token in the session. {\"key\":\"_security_main\"} []\n 5756  [2018-12-03 09:06:30] request.INFO: Matched route \"_wdt\". {\"route\":\"_wdt\",\"route_parameters\":{\"_route\":\"_wdt\",\"_controller\":\"web_profiler.controller.profiler::toolbarAction\",\"token\":\"887311\"},\"request_uri\":\"http://localhost/evaluation-symfony-M1-DEV/public/index.php/_wdt/887311\",\"method\":\"GET\"} []\n ....\n 5761  [2018-12-03 09:06:31] security.DEBUG: User was reloaded from a user provider. {\"provider\":\"Symfony\\\\Bridge\\\\Doctrine\\\\Security\\\\User\\\\EntityUserProvider\",\"username\":\"marivint.yvann@gmail.com\"} []\n 5762  [2018-12-03 09:06:31] php.INFO: User Deprecated: The \"Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\Route\" annotation is deprecated since version 5.2. Use \"Symfony\\Component\\Routing\\Annotation\\Route\" instead. {\"exception\":\"[object] (ErrorException(code: 0): User Deprecated: The \\\"Sensio\\\\Bundle\\\\FrameworkExtraBundle\\\\Configuration\\\\Route\\\" annotation is deprecated since version 5.2. Use \\\"Symfony\\\\Component\\\\Routing\\\\Annotation\\\\Route\\\" instead. at C:\\\\wamp64\\\\www\\\\evaluation-symfony-M1-DEV\\\\vendor\\\\sensio\\\\framework-extra-bundle\\\\Configuration\\\\Route.php:16)\"} []\n 5763: [2018-12-03 09:06:31] request.CRITICAL: Uncaught PHP Exception Symfony\\Component\\PropertyAccess\\Exception\\NoSuchPropertyException: \"Neither the property \"variantes\" nor one of the methods \"getVariantes()\", \"variantes()\", \"isVariantes()\", \"hasVariantes()\", \"__get()\" exist and have public access in class \"App\\Entity\\Variante\".\" at C:\\wamp64\\www\\evaluation-symfony-M1-DEV\\vendor\\symfony\\property-access\\PropertyAccessor.php line 394 {\"exception\":\"[object] (Symfony\\\\Component\\\\PropertyAccess\\\\Exception\\\\NoSuchPropertyException(code: 0): Neither the property \\\"variantes\\\" nor one of the methods \\\"getVariantes()\\\", \\\"variantes()\\\", \\\"isVariantes()\\\", \\\"hasVariantes()\\\", \\\"__get()\\\" exist and have public access in class \\\"App\\\\Entity\\\\Variante\\\". at C:\\\\wamp64\\\\www\\\\evaluation-symfony-M1-DEV\\\\vendor\\\\symfony\\\\property-access\\\\PropertyAccessor.php:394)\"} []\n 5764  [2018-12-03 09:06:31] security.DEBUG: Stored the security token in the session. {\"key\":\"_security_main\"} []\n 5765  [2018-12-03 09:06:32] request.INFO: Matched route \"_wdt\". {\"route\":\"_wdt\",\"route_parameters\":{\"_route\":\"_wdt\",\"_controller\":\"web_profiler.controller.profiler::toolbarAction\",\"token\":\"ad6eb4\"},\"request_uri\":\"http://localhost/evaluation-symfony-M1-DEV/public/index.php/_wdt/ad6eb4\",\"method\":\"GET\"} []\n ....\n 5788  [2018-12-03 09:08:48] security.DEBUG: User was reloaded from a user provider. {\"provider\":\"Symfony\\\\Bridge\\\\Doctrine\\\\Security\\\\User\\\\EntityUserProvider\",\"username\":\"marivint.yvann@gmail.com\"} []\n 5789  [2018-12-03 09:08:48] php.INFO: User Deprecated: The \"Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\Route\" annotation is deprecated since version 5.2. Use \"Symfony\\Component\\Routing\\Annotation\\Route\" instead. {\"exception\":\"[object] (ErrorException(code: 0): User Deprecated: The \\\"Sensio\\\\Bundle\\\\FrameworkExtraBundle\\\\Configuration\\\\Route\\\" annotation is deprecated since version 5.2. Use \\\"Symfony\\\\Component\\\\Routing\\\\Annotation\\\\Route\\\" instead. at C:\\\\wamp64\\\\www\\\\evaluation-symfony-M1-DEV\\\\vendor\\\\sensio\\\\framework-extra-bundle\\\\Configuration\\\\Route.php:16)\"} []\n 5790: [2018-12-03 09:08:48] request.CRITICAL: Uncaught PHP Exception Symfony\\Component\\PropertyAccess\\Exception\\NoSuchPropertyException: \"Neither the property \"variantes\" nor one of the methods \"getVariantes()\", \"variantes()\", \"isVariantes()\", \"hasVariantes()\", \"__get()\" exist and have public access in class \"App\\Entity\\Variante\".\" at C:\\wamp64\\www\\evaluation-symfony-M1-DEV\\vendor\\symfony\\property-access\\PropertyAccessor.php line 394 {\"exception\":\"[object] (Symfony\\\\Component\\\\PropertyAccess\\\\Exception\\\\NoSuchPropertyException(code: 0): Neither the property \\\"variantes\\\" nor one of the methods \\\"getVariantes()\\\", \\\"variantes()\\\", \\\"isVariantes()\\\", \\\"hasVariantes()\\\", \\\"__get()\\\" exist and have public access in class \\\"App\\\\Entity\\\\Variante\\\". at C:\\\\wamp64\\\\www\\\\evaluation-symfony-M1-DEV\\\\vendor\\\\symfony\\\\property-access\\\\PropertyAccessor.php:394)\"} []\n 5791  [2018-12-03 09:08:48] security.DEBUG: Stored the security token in the session. {\"key\":\"_security_main\"} []\n 5792  [2018-12-03 09:08:48] request.INFO: Matched route \"_wdt\". {\"route\":\"_wdt\",\"route_parameters\":{\"_route\":\"_wdt\",\"_controller\":\"web_profiler.controller.profiler::toolbarAction\",\"token\":\"5c3cf7\"},\"request_uri\":\"http://localhost/evaluation-symfony-M1-DEV/public/index.php/_wdt/5c3cf7\",\"method\":\"GET\"} []\n\n209 matches across 14 files\n",
 			"settings":
 			{
-				"buffer_size": 325,
-				"line_ending": "Windows"
+				"buffer_size": 19806,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
 			}
 		},
 		{
-			"file": "templates/admin/index.html.twig",
+			"file": "public/css/style.css",
 			"settings":
 			{
-				"buffer_size": 335,
+				"buffer_size": 1006,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "src/Controller/AdminController.php",
-			"settings":
-			{
-				"buffer_size": 3556,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "templates/admin/montre.html.twig",
-			"settings":
-			{
-				"buffer_size": 1018,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "templates/base.html.twig",
-			"settings":
-			{
-				"buffer_size": 1003,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
 			}
 		}
 	],
@@ -668,10 +636,18 @@
 	},
 	"expanded_folders":
 	[
-		"/C/wamp64/www/evaluation-symfony-M1-DEV"
+		"/C/wamp64/www/evaluation-symfony-M1-DEV",
+		"/C/wamp64/www/evaluation-symfony-M1-DEV/public",
+		"/C/wamp64/www/evaluation-symfony-M1-DEV/public/css",
+		"/C/wamp64/www/evaluation-symfony-M1-DEV/public/js"
 	],
 	"file_history":
 	[
+		"/C/wamp64/www/evaluation-symfony-M1-DEV/templates/admin/index.html.twig",
+		"/C/wamp64/www/evaluation-symfony-M1-DEV/src/Controller/DefaultController.php",
+		"/C/wamp64/www/evaluation-symfony-M1-DEV/src/Controller/AdminController.php",
+		"/C/wamp64/www/evaluation-symfony-M1-DEV/templates/admin/montre.html.twig",
+		"/C/wamp64/www/evaluation-symfony-M1-DEV/templates/base.html.twig",
 		"/C/wamp64/www/symfony-montre/src/Controller/MontreController.php",
 		"/C/wamp64/www/symfony-montre/src/Controller/AdminController.php",
 		"/C/wamp64/www/symfony-montre/templates/_nav.html.twig",
@@ -794,12 +770,7 @@
 		"/C/wamp64/www/horizon-vitrine/en/belgique.php",
 		"/C/wamp64/www/horizon-vitrine/data.php",
 		"/C/wamp64/www/horizon-vitrine/js/map.js",
-		"/C/wamp64/www/horizon-vitrine/0-config/fonctions.php",
-		"/C/Users/ymarivint/Desktop/BACKUP(YVANN)/map.js",
-		"/C/Users/ymarivint/Desktop/BACKUP(YVANN)/horizon-vitrine 01 02/js/map.js",
-		"/C/wamp64/www/horizon-vitrine/implantations.php",
-		"/C/wamp64/www/horizon-vitrine/en/implantations.php",
-		"/C/wamp64/www/horizon-vitrine/css/sass/_maps.scss"
+		"/C/wamp64/www/horizon-vitrine/0-config/fonctions.php"
 	],
 	"find":
 	{
@@ -810,6 +781,7 @@
 		"height": 134.0,
 		"where_history":
 		[
+			"C:\\wamp64\\www\\evaluation-symfony-M1-DEV",
 			"C:\\wamp64\\www\\symfony-yvann-marivint"
 		]
 	},
@@ -818,6 +790,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"variantes",
 			"header-left",
 			"topbar",
 			"body",
@@ -847,80 +820,394 @@
 			[
 				{
 					"buffer": 0,
-					"file": "src/Controller/DefaultController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 325,
+						"buffer_size": 19806,
 						"regions":
 						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										262,
+										271
+									],
+									[
+										565,
+										574
+									],
+									[
+										903,
+										912
+									],
+									[
+										1140,
+										1149
+									],
+									[
+										1634,
+										1643
+									],
+									[
+										2474,
+										2483
+									],
+									[
+										2696,
+										2705
+									],
+									[
+										3124,
+										3133
+									],
+									[
+										3405,
+										3414
+									],
+									[
+										4460,
+										4469
+									],
+									[
+										4498,
+										4507
+									],
+									[
+										4513,
+										4522
+									],
+									[
+										4530,
+										4539
+									],
+									[
+										4548,
+										4557
+									],
+									[
+										4864,
+										4873
+									],
+									[
+										4904,
+										4913
+									],
+									[
+										4921,
+										4930
+									],
+									[
+										4940,
+										4949
+									],
+									[
+										4960,
+										4969
+									],
+									[
+										6534,
+										6543
+									],
+									[
+										6572,
+										6581
+									],
+									[
+										6587,
+										6596
+									],
+									[
+										6604,
+										6613
+									],
+									[
+										6622,
+										6631
+									],
+									[
+										6938,
+										6947
+									],
+									[
+										6978,
+										6987
+									],
+									[
+										6995,
+										7004
+									],
+									[
+										7014,
+										7023
+									],
+									[
+										7034,
+										7043
+									],
+									[
+										8608,
+										8617
+									],
+									[
+										8646,
+										8655
+									],
+									[
+										8661,
+										8670
+									],
+									[
+										8678,
+										8687
+									],
+									[
+										8696,
+										8705
+									],
+									[
+										9012,
+										9021
+									],
+									[
+										9052,
+										9061
+									],
+									[
+										9069,
+										9078
+									],
+									[
+										9088,
+										9097
+									],
+									[
+										9108,
+										9117
+									],
+									[
+										10338,
+										10347
+									],
+									[
+										10376,
+										10385
+									],
+									[
+										10391,
+										10400
+									],
+									[
+										10408,
+										10417
+									],
+									[
+										10426,
+										10435
+									],
+									[
+										10744,
+										10753
+									],
+									[
+										10784,
+										10793
+									],
+									[
+										10801,
+										10810
+									],
+									[
+										10820,
+										10829
+									],
+									[
+										10840,
+										10849
+									],
+									[
+										12416,
+										12425
+									],
+									[
+										12454,
+										12463
+									],
+									[
+										12469,
+										12478
+									],
+									[
+										12486,
+										12495
+									],
+									[
+										12504,
+										12513
+									],
+									[
+										12822,
+										12831
+									],
+									[
+										12862,
+										12871
+									],
+									[
+										12879,
+										12888
+									],
+									[
+										12898,
+										12907
+									],
+									[
+										12918,
+										12927
+									],
+									[
+										14494,
+										14503
+									],
+									[
+										14532,
+										14541
+									],
+									[
+										14547,
+										14556
+									],
+									[
+										14564,
+										14573
+									],
+									[
+										14582,
+										14591
+									],
+									[
+										14900,
+										14909
+									],
+									[
+										14940,
+										14949
+									],
+									[
+										14957,
+										14966
+									],
+									[
+										14976,
+										14985
+									],
+									[
+										14996,
+										15005
+									],
+									[
+										16572,
+										16581
+									],
+									[
+										16610,
+										16619
+									],
+									[
+										16625,
+										16634
+									],
+									[
+										16642,
+										16651
+									],
+									[
+										16660,
+										16669
+									],
+									[
+										16978,
+										16987
+									],
+									[
+										17018,
+										17027
+									],
+									[
+										17035,
+										17044
+									],
+									[
+										17054,
+										17063
+									],
+									[
+										17074,
+										17083
+									],
+									[
+										18650,
+										18659
+									],
+									[
+										18688,
+										18697
+									],
+									[
+										18703,
+										18712
+									],
+									[
+										18720,
+										18729
+									],
+									[
+										18738,
+										18747
+									],
+									[
+										19056,
+										19065
+									],
+									[
+										19096,
+										19105
+									],
+									[
+										19113,
+										19122
+									],
+									[
+										19132,
+										19141
+									],
+									[
+										19152,
+										19161
+									]
+								],
+								"scope": ""
+							}
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								569,
+								569
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "templates/admin/index.html.twig",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 335,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "src/Controller/AdminController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3556,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -930,89 +1217,34 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 1,
+					"file": "public/css/style.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 1006,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1006,
+								1006
 							]
 						],
 						"settings":
 						{
-							"default_dir": "C:\\wamp64\\www\\symfony-montre\\templates\\montre",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "templates/admin/montre.html.twig",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1018,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "templates/base.html.twig",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1003,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								644,
-								644
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP-Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"color_scheme": "Packages/User/Color Highlighter/themes/Material-Theme.tmTheme",
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 300.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]

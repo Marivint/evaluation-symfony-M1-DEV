@@ -81,7 +81,7 @@ class MontreController extends Controller
      */
     public function delete(Request $request, Montre $m){
         $token = $request->query->get("token");
-        if(!$this->isCsrfTokenValid("GENRE_DELETE",$token)){
+        if(!$this->isCsrfTokenValid("MONTRE_DELETE",$token)){
             throw  $this->createAccessDeniedException();
         }
         $bdd = $this->getDoctrine()->getManager();

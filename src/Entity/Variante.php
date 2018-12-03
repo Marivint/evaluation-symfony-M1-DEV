@@ -3,21 +3,21 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\VarianteRepository")
+ * @ORM\Entity()
+ * @package App\Entity*
  */
 class Variante
 {
-    /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+    use idTrait;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull()
+     * @Assert\Type("string")
+     * @Assert\Length(max=255)
      */
     private $intitule;
 
@@ -33,59 +33,101 @@ class Variante
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\File(
+     *     maxSize = "2M",
+     *     mimeTypes = {"image/jpeg", "image/gif", "image/png"},
+     *     mimeTypesMessage = "Le fichier choisi ne correspond pas à un fichier valide",
+     *     notFoundMessage = "Le fichier n'a pas été trouvé sur le disque",
+     *     uploadErrorMessage = "Erreur dans l'upload du fichier"
+     * )
      */
     private $src_image;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Montre")
+     */
+    private $montres;
 
-    public function getIntitule(): ?string
+
+    /**
+     * @return mixed
+     */
+    public function getIntitule()
     {
         return $this->intitule;
     }
 
-    public function setIntitule(string $intitule): self
+    /**
+     * @param mixed $intitule
+     */
+    public function setIntitule($intitule)
     {
         $this->intitule = $intitule;
-
-        return $this;
     }
 
-    public function getDescription(): ?string
+    /**
+     * @return mixed
+     */
+    public function getDescription()
     {
         return $this->description;
     }
 
-    public function setDescription(?string $description): self
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
     {
         $this->description = $description;
-
-        return $this;
     }
 
-    public function getPrix(): ?float
+    /**
+     * @return mixed
+     */
+    public function getPrix()
     {
         return $this->prix;
     }
 
-    public function setPrix(float $prix): self
+    /**
+     * @param mixed $prix
+     */
+    public function setPrix($prix)
     {
         $this->prix = $prix;
-
-        return $this;
     }
 
-    public function getSrcImage(): ?string
+    /**
+     * @return mixed
+     */
+    public function getSrcImage()
     {
         return $this->src_image;
     }
 
-    public function setSrcImage(string $src_image): self
+    /**
+     * @param mixed $src_image
+     */
+    public function setSrcImage($src_image)
     {
         $this->src_image = $src_image;
-
-        return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getMontres()
+    {
+        return $this->montres;
+    }
+
+    /**
+     * @param mixed $montres
+     */
+    public function setMontres($montres)
+    {
+        $this->montres = $montres;
+    }
+
+
 }

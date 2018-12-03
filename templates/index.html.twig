@@ -2,4 +2,38 @@
 
 {% block body %}
     {{ parent () }}
+    <header>
+        <div class="container">
+            <div class="slider-container">
+                <div class="intro-text intro-animated hidden">
+                    <div class="intro-lead-in">Les plus belles montre sur terre.</div>
+                    <div class="intro-heading">Explorer MyWatch</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="montres">
+        <div class="container-fluid">
+            <div class="col-md-12">
+                <div class="row">
+                    {%  for montre in liste_montre %}
+                        <article class="col-md-4 col-sm-6">
+                            <div class="col">
+                                <div class="bien">
+                                    <a href="{{ path('app_default_index') }}" target="_blank">
+                                        <img src="{{ asset('uploads/variantes/' ~ montre.src_image )}}" class="img-responsive img-montre">
+                                    </a>
+                                </div>
+                            </div><!-- Fin de col md 12 -->
+
+                            <div class="col text-center">
+                                <h3>{{ montre.intitule }}</h3>
+                            </div> <!-- Fin de col md 12 -->
+                        </article>
+                    {% endfor %}
+                </div>  <!-- Fin col-md-12 -->
+            </div> <!-- row -->
+        </div> <!-- Fin container-fluid -->
+    </section>
 {% endblock %}

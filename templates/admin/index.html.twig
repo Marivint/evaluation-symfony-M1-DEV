@@ -1,12 +1,18 @@
 {% extends 'base.html.twig' %}
 
+
 {% block body %}
 	{{ parent() }}
-	<div class="container">
+	<style type="text/css">
+		body{
+			background: linear-gradient(45deg, #d8f0f3, #3eb4c1);
+		}
+	</style>
+	<div id="administration" class="container container-top">
 		<div class="row">
 			<div class="col-md-12">
-				<a href="{{ path('app_admin_montre') }}" class="btn btn-info">Les montres</a>
-				<a href="{{ path('app_admin_variante') }}" class="btn btn-info">Les variantes</a>
+				<a href="{{ path('app_admin_montre') }}" class="btn btn-border">Les montres</a>
+				<a href="{{ path('app_admin_variante') }}" class="btn btn-border">Les variantes</a>
 			</div>
 		</div>
 	</div>

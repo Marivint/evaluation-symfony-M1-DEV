@@ -2,10 +2,7 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity()
@@ -16,7 +13,7 @@ class Montre{
     use idTrait;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string")
      */
     private $intitule;
 
@@ -24,17 +21,6 @@ class Montre{
      * @ORM\Column(type="text")
      */
     private $description;
-
-    /**
-     * @ORM\Column(type="text")
-     */
-    private $scr_image;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Variante")
-     */
-    private $variantes;
-
 
     /**
      * @return mixed
@@ -67,5 +53,6 @@ class Montre{
     {
         $this->description = $description;
     }
+
 
 }

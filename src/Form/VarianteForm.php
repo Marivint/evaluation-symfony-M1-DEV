@@ -2,7 +2,9 @@
 
 namespace App\Form {
 
+    use App\Entity\Montre;
     use App\Entity\Variante;
+    use Symfony\Bridge\Doctrine\Form\Type\EntityType;
     use Symfony\Component\Form\AbstractType;
 
     use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -18,9 +20,20 @@ namespace App\Form {
         {
             $builder
                 ->add('intitule', TextType::class, ['label' => 'Intitulé de la variante'])
-                ->add('description', TextType::class, ['label' => 'Description'])
-                ->add('prix', IntegerType::class, ['label' => 'Description'])
-                ->add('src_image', FileType::class, ['label' => 'Image'])
+                ->add('montres', EntityType::class,[
+                    'class' => Montre::class,
+                    'label' => 'Choisissez une montre',
+                    'choice_label' => 'intitule'
+                ])
+                ->add('description', TextType::class, [
+                    'label' => 'Description',
+                    'required' => false
+                ])
+                ->add('prix', IntegerType::class, ['label' => 'Prix'])
+                ->add('src_image', FileType::class, [
+                    'label' => 'Image',
+                    'data_class' => null
+                ])
                 ->getForm();
         }
     }

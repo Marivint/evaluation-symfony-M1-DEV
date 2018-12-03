@@ -2,7 +2,12 @@
 
 {% block body %}
     {{ parent() }}
-    <div class="container">
+    <style type="text/css">
+        body{
+            background: linear-gradient(45deg, #d8f0f3, #3eb4c1);
+        }
+    </style>
+    <div class="container container-top">
         <div class="row">
             <div class="col-md-12">
                 <h1>Formulaire d'une variante</h1>
@@ -12,7 +17,7 @@
                 {% form_theme variante_form 'bootstrap_3_layout.html.twig' %}
                 {{ form_start(variante_form) }}
                 {{ form_widget(variante_form) }}
-                <button class="btn btn-info" type="submit">Ajouter</button>
+                <button class="btn btn-info" type="submit">Enregistrer</button>
                 {{ form_end(variante_form) }}
             </div>
         </div>

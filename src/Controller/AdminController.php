@@ -5,10 +5,13 @@ namespace App\Controller;
 use App\Entity\Montre;
 use App\Entity\Variante;
 use App\Form\MontreForm;
+use App\Form\VarianteForm;
+use App\Repository\VarianteRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 /**
  * @Route("/admin")
@@ -90,7 +93,7 @@ class AdminController extends Controller
      */
     public function montreDelete(Request $request, Montre $m){
         $token = $request->query->get("token");
-        if(!$this->isCsrfTokenValid("GENRE_DELETE",$token)){
+        if(!$this->isCsrfTokenValid("MONTRE_DELETE",$token)){
             throw  $this->createAccessDeniedException();
         }
         $bdd = $this->getDoctrine()->getManager();
@@ -122,20 +125,35 @@ class AdminController extends Controller
     public function varianteCreate(Request $request){
         $v = new Variante();
 
-        $form = $this->createForm(Variante::class, $v);
+        $form = $this->createForm(VarianteForm::class, $v);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $file = $v->getSrcImage();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+
+            try {
+                $file->move(
+                    $this->getParameter('dossier_variantes'),
+                    $fileName
+                );
+            } catch (FileException $e) {
+
+            }
+
+            $v->setSrcImage($fileName);
+
             $bdd = $this->getDoctrine()->getManager();
             $bdd->persist($v);
             $bdd->flush();
 
             $this->addFlash("success","La variante à bien été ajouté");
-            return $this->redirectToRoute('app_adm');
+            return $this->redirectToRoute('app_admin_variante');
         }
 
-        return $this->render('admin/montreForm.html.twig', [
-            'montre_form' => $form->createView(),
+        return $this->render('admin/varianteForm.html.twig', [
+            'variante_form' => $form->createView(),
         ]);
     }
 
@@ -143,11 +161,26 @@ class AdminController extends Controller
      * @Route("/variante/modifier/{id}")
      */
     public function varianteUpdate(Request $request, Variante $v){
-        $form = $this->createForm(MontreForm::class, $v);
+        $form = $this->createForm(VarianteForm::class, $v);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $bdd = $this->getDoctrine()->getManager();
+
+            $file = $v->getSrcImage();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+
+            try {
+                $file->move(
+                    $this->getParameter('dossier_variantes'),
+                    $fileName
+                );
+            } catch (FileException $e) {
+
+            }
+
+            $v->setSrcImage($fileName);
+
             $bdd->flush();
 
             $this->addFlash("success","La variante a bien été modifié");
@@ -156,7 +189,7 @@ class AdminController extends Controller
             ]);
         }
 
-        return $this->render('admin/montreForm.html.twig', [
+        return $this->render('admin/varianteForm.html.twig', [
             'variante_form' => $form->createView(),
         ]);
     }
@@ -169,10 +202,13 @@ class AdminController extends Controller
         if(!$this->isCsrfTokenValid("VARIANTE_DELETE",$token)){
             throw  $this->createAccessDeniedException();
         }
+
+        unlink('uploads/variantes/'.$v->getSrcImage());
+
         $bdd = $this->getDoctrine()->getManager();
         $bdd->remove($v);
         $bdd->flush();
-        return $this->redirectToRoute("app_admin_montre");
+        return $this->redirectToRoute("app_admin_variante");
     }
 
 }
