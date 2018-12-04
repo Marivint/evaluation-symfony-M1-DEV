@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    {{ parent() }}
+    <style type="text/css">
+        #menu {
+            background-color: #1db1c8;
+            padding: 15px;
+        }
+    </style>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center text-dark">Utilisateur :</h1>
+                <ul class="text-dark">
+                    <li>Nom : {{ utilisateur.nom }}</li>
+                    <li>Prenom : {{ utilisateur.prenom }}</li>
+                    <li>Email : {{ utilisateur.email }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
