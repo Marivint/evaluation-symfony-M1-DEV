@@ -1,0 +1,4 @@
+Page inscription
+Problème de index.php
+Créer une entité montre_type
+Faore fonctionner les alert
