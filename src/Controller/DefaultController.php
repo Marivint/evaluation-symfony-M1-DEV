@@ -13,23 +13,17 @@ class DefaultController extends Controller
      */
     public function index()
     {
-        /*
-        $bdd = $this->getDoctrine()->getManager();
-        $m = $bdd->getRepository(Montre::class);
-        $liste_montre = $m->findBy(
-            [], // WHERE
-            ["intitule" => "ASC"]// ORDER BY]
-        );
-        */
+
+        // $this->addFlash("success","test message");
 
         $bdd = $this->getDoctrine()->getManager();
 
-        $req = "SELECT m.id,m.intitule,m.description,v.src_image 
+        $req = "SELECT m.id,m.intitule,m.description,v.filename 
                 FROM montre m
                 JOIN  variante v
-                ON   v.montres_id = ( SELECT  id
-                                      FROM    variante v2
-                                      WHERE   v.montres_id = m.id
+                ON   v.montres_id = ( SELECT  montres_id
+                                      FROM    variante
+                                      WHERE   montres_id = m.id
                                       LIMIT 1
                                      )";
 

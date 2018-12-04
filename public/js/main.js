@@ -37,7 +37,7 @@ $(document).ready(function(){
     // Loader
     $("#loader-container").animateCss('fadeOut',function(){
         $("#loader-container").hide();
-        $( ".intro-animated" ).css("display","inline-block");
+        $( ".intro-animated" ).css("display","inherit");
         $( ".intro-animated" ).animateCss('fadeInUp');
         // $( "#maps" ).animateCss('bounce');
     });
@@ -52,6 +52,7 @@ $(document).ready(function(){
         });
     });
     // Fin loader
+
 
     // Poubelle
 

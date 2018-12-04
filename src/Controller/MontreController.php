@@ -17,9 +17,34 @@ class MontreController extends Controller
 {
 
     /**
-     * @Route("/")
+     * @Route("/{id}")
      */
-    public function index(){
+    public function index(Montre $m){
+        dump($m);
+        return $this->render('montre/index.html.twig');
+    }
+        /*
+        $bdd = $this->getDoctrine()->getManager();
+
+        $req = "SELECT m.id,m.intitule,m.description,v.filename 
+                FROM montre m
+                JOIN  variante v
+                ON   v.montres_id = ( SELECT  montres_id
+                                      FROM    variante
+                                      WHERE   montres_id = m.id
+                                      LIMIT 1
+                                     )";
+
+        $sql = $bdd->getConnection()->prepare($req);
+        $sql->execute();
+
+        $liste_montre = $sql->fetchAll();
+
+        return $this->render('index.html.twig', [
+            "liste_montre" => $liste_montre,
+        ]);
+
+
         $bdd = $this->getDoctrine()->getManager();
         $m = $bdd->getRepository(Montre::class);
         $liste_montre = $m->findBy(
@@ -29,65 +54,6 @@ class MontreController extends Controller
         return $this->render('montre/index.html.twig', [
             "liste_montre" => $liste_montre,
         ]);
-    }
-
-    /**
-     * @Route("/creer")
-     */
-    public function create(Request $request)
-    {
-        $m = new Montre();
-
-        $form = $this->createForm(MontreForm::class, $m);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $bdd = $this->getDoctrine()->getManager();
-            $bdd->persist($m);
-            $bdd->flush();
-
-            return $this->redirectToRoute('app_montre_index');
-        }
-
-        return $this->render('montre/form.html.twig', [
-            'montreForm' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/modifier/{id}")
-     */
-    public function update(Request $request, Montre $m)
-    {
-        $form = $this->createForm(MontreForm::class, $m);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $bdd = $this->getDoctrine()->getManager();
-            $bdd->flush();
-
-            return $this->redirectToRoute('app_montre_index',[
-                'id' => $m->getId(),
-            ]);
-        }
-
-        return $this->render('montre/form.html.twig', [
-            'montreForm' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/supprimer/{id}")
-     */
-    public function delete(Request $request, Montre $m){
-        $token = $request->query->get("token");
-        if(!$this->isCsrfTokenValid("MONTRE_DELETE",$token)){
-            throw  $this->createAccessDeniedException();
-        }
-        $bdd = $this->getDoctrine()->getManager();
-        $bdd->remove($m);
-        $bdd->flush();
-        return $this->redirectToRoute("app_montre_index");
-    }
+        */
 
 }

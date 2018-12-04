@@ -30,9 +30,17 @@ namespace App\Form {
                     'required' => false
                 ])
                 ->add('prix', IntegerType::class, ['label' => 'Prix'])
+                /*
                 ->add('src_image', FileType::class, [
                     'label' => 'Image',
-                    'data_class' => null
+                    'data_class' => null,
+                    'required' => false
+                ])
+                */
+                ->add('image', FileType::class, [
+                    'label' => null,
+                    'attr' => ['placeholder' => 'Choose file'],
+                    'required' => false
                 ])
                 ->getForm();
         }

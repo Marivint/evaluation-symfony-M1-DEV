@@ -21,8 +21,8 @@
                         <article class="col-md-4 col-sm-6">
                             <div class="col">
                                 <div class="bien">
-                                    <a href="{{ path('app_default_index') }}" target="_blank">
-                                        <img src="{{ asset('uploads/variantes/' ~ montre.src_image )}}" class="img-responsive img-montre">
+                                    <a href="{{ path('app_montre_index', {"id": montre.id}) }}" target="_blank">
+                                        <img src="{{ asset( 'uploads/variantes/' ~ montre.filename )}}" class="img-responsive img-montre">
                                     </a>
                                 </div>
                             </div><!-- Fin de col md 12 -->
@@ -36,4 +36,9 @@
             </div> <!-- row -->
         </div> <!-- Fin container-fluid -->
     </section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent () }}
+    <script src="{{ asset('js/menuScroll.js')}}"></script>
 {% endblock %}

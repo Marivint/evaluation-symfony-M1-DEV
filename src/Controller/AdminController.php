@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Montre;
 use App\Entity\Variante;
+use App\File\VarianteUploader;
 use App\Form\MontreForm;
 use App\Form\VarianteForm;
 use App\Repository\VarianteRepository;
@@ -68,6 +69,7 @@ class AdminController extends Controller
 
     /**
      * @Route("montre/modifier/{id}")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function montreUpdate(Request $request, Montre $m){
         $form = $this->createForm(MontreForm::class, $m);
@@ -90,6 +92,7 @@ class AdminController extends Controller
 
     /**
      * @Route("/montre/supprimer/{id}")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function montreDelete(Request $request, Montre $m){
         $token = $request->query->get("token");
@@ -122,7 +125,7 @@ class AdminController extends Controller
      * @Route("/variante/creer")
      * @Security("has_role('ROLE_ADMIN')")
      */
-    public function varianteCreate(Request $request){
+    public function varianteCreate(Request $request, VarianteUploader $uploader){
         $v = new Variante();
 
         $form = $this->createForm(VarianteForm::class, $v);
@@ -130,19 +133,8 @@ class AdminController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $file = $v->getSrcImage();
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
-
-            try {
-                $file->move(
-                    $this->getParameter('dossier_variantes'),
-                    $fileName
-                );
-            } catch (FileException $e) {
-
-            }
-
-            $v->setSrcImage($fileName);
+            // Upload du fichier
+            $uploader->upload($v);
 
             $bdd = $this->getDoctrine()->getManager();
             $bdd->persist($v);
@@ -159,34 +151,19 @@ class AdminController extends Controller
 
     /**
      * @Route("/variante/modifier/{id}")
+     * @Security("has_role('ROLE_ADMIN')")
      */
-    public function varianteUpdate(Request $request, Variante $v){
+    public function varianteUpdate(Request $request, Variante $v, VarianteUploader $uploader){
         $form = $this->createForm(VarianteForm::class, $v);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $bdd = $this->getDoctrine()->getManager();
-
-            $file = $v->getSrcImage();
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
-
-            try {
-                $file->move(
-                    $this->getParameter('dossier_variantes'),
-                    $fileName
-                );
-            } catch (FileException $e) {
-
-            }
-
-            $v->setSrcImage($fileName);
-
+            $uploader->upload($v);
             $bdd->flush();
 
             $this->addFlash("success","La variante a bien été modifié");
-            return $this->redirectToRoute('app_admin_variante',[
-                'id' => $v->getId(),
-            ]);
+            return $this->redirectToRoute('app_admin_variante');
         }
 
         return $this->render('admin/varianteForm.html.twig', [
@@ -196,6 +173,7 @@ class AdminController extends Controller
 
     /**
      * @Route("/variante/supprimer/{id}")
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function varianteDelete(Request $request, Variante $v){
         $token = $request->query->get("token");
@@ -203,7 +181,7 @@ class AdminController extends Controller
             throw  $this->createAccessDeniedException();
         }
 
-        unlink('uploads/variantes/'.$v->getSrcImage());
+        unlink('uploads/variantes/'.$v->getFilename());
 
         $bdd = $this->getDoctrine()->getManager();
         $bdd->remove($v);

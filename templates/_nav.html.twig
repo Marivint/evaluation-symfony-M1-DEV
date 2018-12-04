@@ -1,12 +1,12 @@
 {% set currentRoute = app.request.attributes.get('_route') %}
     <!-- Navigation -->
-    <nav id="menu" class="navbar navbar-default fixed-top intro-animated after hidden">
-        <div class="container">
+    <nav id="menu" class="navbar navbar-default fixed-top">
+        <div class="container intro-animated hidden after" style="display: none!important;">
             <div class="navbar-header page-scroll">
                 <a id="logo" class="navbar-brand page-scroll" href="{{ path('app_default_index') }}">MyHome</a>
             </div>
             <ul class="nav">
-                <li class="nav-item"><a class="nav-link active" href="{{ path('app_admin_index') }}">Les montres</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{{ path('app_default_index') }}">Les montres</a></li>
 
                 {% if app.user %}
                     {% if is_granted('ROLE_ADMIN') %}

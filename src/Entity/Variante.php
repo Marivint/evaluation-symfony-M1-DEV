@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -41,7 +42,25 @@ class Variante
      *     uploadErrorMessage = "Erreur dans l'upload du fichier"
      * )
      */
-    private $src_image;
+    // private $src_image;
+
+    /**
+     * @var string|null
+     * @ORM\Column(nullable=true)
+     * @Assert\File(
+     *     maxSize = "4M",
+     *     mimeTypes = {"image/jpeg", "image/gif", "image/png"},
+     *     mimeTypesMessage = "Le fichier choisi ne correspond pas à un fichier valide",
+     *     notFoundMessage = "Le fichier n'a pas été trouvé sur le disque",
+     *     uploadErrorMessage = "Erreur dans l'upload du fichier"
+     * )
+     */
+    private $filename;
+
+    /**
+     * @var UploadedFile|null
+     */
+    private $image;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Montre")
@@ -127,6 +146,38 @@ class Variante
     public function setMontres($montres)
     {
         $this->montres = $montres;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getFilename()
+    {
+        return $this->filename;
+    }
+
+    /**
+     * @param null|string $filename
+     */
+    public function setFilename($filename)
+    {
+        $this->filename = $filename;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
     }
 
 
