@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <style type="text/css">
+        body{
+            background: linear-gradient(45deg, #d8f0f3, #3eb4c1);
+        }
+    </style>
+    <div class="container container-top">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Formulaire d'un type</h1>
+                <hr>
+            </div>
+            <div class="col-md-12">
+                {% form_theme type_form 'bootstrap_4_layout.html.twig' %}
+                {{ form_start(type_form) }}
+                {{ form_widget(type_form) }}
+                <button class="btn btn-info" type="submit">Enregistrer</button>
+                {{ form_end(type_form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

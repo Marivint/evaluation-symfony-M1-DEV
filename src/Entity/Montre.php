@@ -23,11 +23,32 @@ class Montre{
     private $description;
 
     /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Type")
+     */
+    private $type;
+
+    /**
      * @return mixed
      */
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param mixed $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
     }
 
     /**

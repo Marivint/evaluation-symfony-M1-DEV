@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <style type="text/css">
+        body{
+            background: linear-gradient(45deg, #d8f0f3, #3eb4c1);
+        }
+    </style>
+    <div class="container container-top">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Liste des types</h1>
+                <br>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Intitule</th>
+                            <th colspan="2"><a href="{{ path('app_admin_typecreate') }}" class="col btn btn-success">Ajouter un type</a></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% set token = csrf_token("TYPE_DELETE") %}
+                        {% for type in liste_type %}
+                            <tr>
+                                <td>{{ type.intitule }}</td>
+                                <td><a href="{{ path('app_admin_typeupdate', {"id": type.id}) }}" class="btn btn-info">Modifier</a></td>
+                                <td><a href="{{ path('app_admin_typedelete', {"id": type.id,token:token}) }}" class="btn btn-danger">Supprimer</a></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

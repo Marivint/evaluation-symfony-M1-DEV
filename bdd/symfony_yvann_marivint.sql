@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 04 déc. 2018 à 14:01
+-- Généré le :  mar. 04 déc. 2018 à 15:52
 -- Version du serveur :  5.7.19
 -- Version de PHP :  7.1.9
 
@@ -47,19 +47,43 @@ CREATE TABLE IF NOT EXISTS `montre` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `intitule` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `type_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_B61A93A4C54C8C93` (`type_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `montre`
 --
 
-INSERT INTO `montre` (`id`, `intitule`, `description`) VALUES
-(3, 'LA SULLY - OR ROSE', 'montre'),
-(4, 'LA SULLY OR ROSE - NOIR', 'montre'),
-(5, 'BASTILLE B4.6 - PANDA BLEU', 'montre'),
-(6, 'HORIZON - BLANC', 'MONTRE'),
-(7, 'GR - BLEU OCEAN', 'montre');
+INSERT INTO `montre` (`id`, `intitule`, `description`, `type_id`) VALUES
+(3, 'LA SULLY - OR ROSE', 'montre', 3),
+(4, 'LA SULLY OR ROSE - NOIR', 'montre', 2),
+(5, 'BASTILLE B4.6 - PANDA BLEU', 'montre', 2),
+(6, 'HORIZON - BLANC', 'MONTRE', 2),
+(7, 'GR - BLEU OCEAN', 'montre', 2),
+(8, 'test', 'test', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `type`
+--
+
+DROP TABLE IF EXISTS `type`;
+CREATE TABLE IF NOT EXISTS `type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `intitule` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `type`
+--
+
+INSERT INTO `type` (`id`, `intitule`) VALUES
+(2, 'Type1'),
+(3, 'Type2');
 
 -- --------------------------------------------------------
 
@@ -77,14 +101,15 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `admin` tinyint(1) NOT NULL,
   `date_crea` date NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `utilisateur`
 --
 
 INSERT INTO `utilisateur` (`id`, `nom`, `prenom`, `email`, `mdp`, `admin`, `date_crea`) VALUES
-(1, 'marivint', 'yvann', 'marivint.yvann@gmail.com', '$2y$10$KiM6aRk5GlOo7Jkl9O4yYO6ly7hfllWJ/5syb.fIs9TkAMKcAhtWa', 1, '2018-12-03');
+(1, 'admin', 'admin', 'admin@gmail.com', '$2y$10$k5jbeEOzXKgna.b7azhtvexhsfRGveYJXlp8dJrLFJVjRjp.g/ZLq', 1, '2018-12-03'),
+(2, 'utilisateur', 'utilisateur', 'utilisateur@gmail.com', '$2y$10$ohhhGLzUWjoa70.oklKOZ.l.ndQMlROuRUvxxoFAJtf0a37vrcc.C', 0, '2018-12-04');
 
 -- --------------------------------------------------------
 
@@ -134,6 +159,12 @@ INSERT INTO `variante` (`id`, `intitule`, `description`, `prix`, `montres_id`, `
 --
 -- Contraintes pour les tables déchargées
 --
+
+--
+-- Contraintes pour la table `montre`
+--
+ALTER TABLE `montre`
+  ADD CONSTRAINT `FK_B61A93A4C54C8C93` FOREIGN KEY (`type_id`) REFERENCES `type` (`id`);
 
 --
 -- Contraintes pour la table `utilisateur_commande`

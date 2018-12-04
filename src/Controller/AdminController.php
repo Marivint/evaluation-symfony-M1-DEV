@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Montre;
+use App\Entity\Type;
 use App\Entity\Variante;
 use App\File\VarianteUploader;
 use App\Form\MontreForm;
+use App\Form\TypeForm;
 use App\Form\VarianteForm;
 use App\Repository\VarianteRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -189,4 +191,81 @@ class AdminController extends Controller
         return $this->redirectToRoute("app_admin_variante");
     }
 
+    /**
+     * @Route("/type")
+     * @Security("has_role('ROLE_ADMIN')")
+     */
+    public function type(){
+        $bdd = $this->getDoctrine()->getManager();
+        $t = $bdd->getRepository(Type::class);
+        $liste_type = $t->findBy(
+            [], // WHERE
+            ["intitule" => "ASC"]// ORDER BY]
+        );
+        return $this->render('admin/type.html.twig',[
+            "liste_type" => $liste_type
+        ]);
+    }
+
+    /**
+     * @Route("/type/creer")
+     * @Security("has_role('ROLE_ADMIN')")
+     */
+    public function typeCreate(Request $request){
+        $t = new Type();
+
+        $form = $this->createForm(TypeForm::class, $t);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $bdd = $this->getDoctrine()->getManager();
+            $bdd->persist($t);
+            $bdd->flush();
+
+            $this->addFlash("success","Le type à bien été ajouté");
+            return $this->redirectToRoute('app_admin_type');
+        }
+
+        return $this->render('admin/typeForm.html.twig', [
+            'type_form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("type/modifier/{id}")
+     * @Security("has_role('ROLE_ADMIN')")
+     */
+    public function typeUpdate(Request $request, Type $t){
+        $form = $this->createForm(TypeForm::class, $t);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $bdd = $this->getDoctrine()->getManager();
+            $bdd->flush();
+
+            $this->addFlash("success","La montre a bien été modifié");
+            return $this->redirectToRoute('app_admin_type',[
+                'id' => $t->getId(),
+            ]);
+        }
+
+        return $this->render('admin/typeForm.html.twig', [
+            'type_form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/type/supprimer/{id}")
+     * @Security("has_role('ROLE_ADMIN')")
+     */
+    public function typeDelete(Request $request, Type $t){
+        $token = $request->query->get("token");
+        if(!$this->isCsrfTokenValid("TYPE_DELETE",$token)){
+            throw  $this->createAccessDeniedException();
+        }
+        $bdd = $this->getDoctrine()->getManager();
+        $bdd->remove($t);
+        $bdd->flush();
+        return $this->redirectToRoute("app_admin_type");
+    }
 }
