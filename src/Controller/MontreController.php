@@ -19,41 +19,25 @@ class MontreController extends Controller
     /**
      * @Route("/{id}")
      */
-    public function index(Montre $m){
-        dump($m);
-        return $this->render('montre/index.html.twig');
-    }
-        /*
+    public function index(Montre $m)
+    {
         $bdd = $this->getDoctrine()->getManager();
 
-        $req = "SELECT m.id,m.intitule,m.description,v.filename 
-                FROM montre m
-                JOIN  variante v
-                ON   v.montres_id = ( SELECT  montres_id
-                                      FROM    variante
-                                      WHERE   montres_id = m.id
-                                      LIMIT 1
-                                     )";
+        $id = $m->getId();
+
+        $req = "SELECT v.intitule,v.description,v.prix,v.filename
+                FROM variante v
+                WHERE v.montres_id = $id";
 
         $sql = $bdd->getConnection()->prepare($req);
         $sql->execute();
 
-        $liste_montre = $sql->fetchAll();
+        $liste_variante = $sql->fetchAll();
 
-        return $this->render('index.html.twig', [
-            "liste_montre" => $liste_montre,
-        ]);
-
-
-        $bdd = $this->getDoctrine()->getManager();
-        $m = $bdd->getRepository(Montre::class);
-        $liste_montre = $m->findBy(
-            [], // WHERE
-            ["intitule" => "ASC"]// ORDER BY]
-        );
         return $this->render('montre/index.html.twig', [
-            "liste_montre" => $liste_montre,
+            "montre" => $m,
+            "liste_variante" => $liste_variante,
         ]);
-        */
 
+    }
 }

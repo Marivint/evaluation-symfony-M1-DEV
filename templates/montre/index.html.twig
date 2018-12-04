@@ -9,11 +9,48 @@
             padding: 15px;
         }
     </style>
-    <div class="container container-top">
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <h3>Yo</h3>
-            </div>
+            <div class="col-md-12"><h1 class="text-center text-dark">Les variantes pour : {{ montre.intitule }}</h1></div>
         </div>
     </div>
+
+    <section id="montres">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        {%  for variante in liste_variante %}
+                            <article class="col-md-4 col-sm-6">
+                                <div class="col">
+                                    <div class="bien">
+                                        <a target="_blank">
+                                            <img src="{{ asset( 'uploads/variantes/' ~ variante.filename )}}" class="img-responsive img-montre">
+                                        </a>
+                                    </div>
+                                </div><!-- Fin de col md 12 -->
+
+                                <div class="col text-center">
+                                    <h3>{{ variante.intitule }}</h3>
+                                </div> <!-- Fin de col md 12 -->
+                            </article>
+                        {% endfor %}
+                    </div>  <!-- Fin row -->
+                </div> <!-- Fin col-md-12 -->
+            </div> <!-- Fin row -->
+        </div> <!-- Fin container-fluid -->
+    </section>
 {% endblock %}

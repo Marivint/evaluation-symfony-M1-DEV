@@ -68,6 +68,38 @@ class Utilisateur implements UserInterface {
     private $commandes;
 
     /**
+     * @return string
+     */
+    public function getRawMdp(): string
+    {
+        return $this->raw_mdp;
+    }
+
+    /**
+     * @param string $raw_mdp
+     */
+    public function setRawMdp(string $raw_mdp)
+    {
+        $this->raw_mdp = $raw_mdp;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCommandes()
+    {
+        return $this->commandes;
+    }
+
+    /**
+     * @param mixed $commandes
+     */
+    public function setCommandes($commandes)
+    {
+        $this->commandes = $commandes;
+    }
+
+    /**
      * Returns the roles granted to the user.
      *
      *     public function getRoles()

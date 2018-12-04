@@ -13,27 +13,38 @@
         </div>
     </header>
 
+    <br>
+    <br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12"><h1 class="text-center text-dark">Les montres</h1></div>
+        </div>
+    </div>
+
     <section id="montres">
         <div class="container-fluid">
-            <div class="col-md-12">
-                <div class="row">
-                    {%  for montre in liste_montre %}
-                        <article class="col-md-4 col-sm-6">
-                            <div class="col">
-                                <div class="bien">
-                                    <a href="{{ path('app_montre_index', {"id": montre.id}) }}" target="_blank">
-                                        <img src="{{ asset( 'uploads/variantes/' ~ montre.filename )}}" class="img-responsive img-montre">
-                                    </a>
-                                </div>
-                            </div><!-- Fin de col md 12 -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        {%  for montre in liste_montre %}
+                            <article class="col-md-4 col-sm-6">
+                                <div class="col">
+                                    <div class="bien">
+                                        <a href="{{ path('app_montre_index', {"id": montre.id}) }}" target="_blank">
+                                            <img src="{{ asset( 'uploads/variantes/' ~ montre.filename )}}" class="img-responsive img-montre">
+                                        </a>
+                                    </div>
+                                </div><!-- Fin de col md 12 -->
 
-                            <div class="col text-center">
-                                <h3>{{ montre.intitule }}</h3>
-                            </div> <!-- Fin de col md 12 -->
-                        </article>
-                    {% endfor %}
-                </div>  <!-- Fin col-md-12 -->
-            </div> <!-- row -->
+                                <div class="col text-center">
+                                    <h3>{{ montre.intitule }}</h3>
+                                </div> <!-- Fin de col md 12 -->
+                            </article>
+                        {% endfor %}
+                    </div>  <!-- Fin row -->
+                </div> <!-- Fin col-md-12 -->
+            </div> <!-- Fin row -->
         </div> <!-- Fin container-fluid -->
     </section>
 {% endblock %}

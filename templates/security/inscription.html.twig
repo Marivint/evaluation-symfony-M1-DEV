@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    <style type="text/css">
+        body{
+            background: linear-gradient(45deg, #d8f0f3, #3eb4c1);
+        }
+    </style>
+    <div class="container">
+        <div class="col-md-12">
+            {% if error %}
+                <div class="alert alert-danger animated bounceInDown">
+                    {{ error.messageKey|trans(error.messageData,'security') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <div id="login" class="col-md-4 centrer">
+        {% form_theme utilisateur_form 'bootstrap_4_layout.html.twig' %}
+        {{ form_start(utilisateur_form) }}
+        {{ form_widget(utilisateur_form) }}
+        <button class="btn btn-info" type="submit">S'inscrire</button>
+        {{ form_end(utilisateur_form) }}
+    </div>
+{% endblock %}
